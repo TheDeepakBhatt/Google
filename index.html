@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title -->
+    <title>Google</title>
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://www.google.com/favicon.ico" type="image/x-icon">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <center>
+        <!-- Google Logo Starts -->
+        <div class="logo">
+            <img alt="Google"
+                src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
+        </div>
+        <!-- Google Logo Ends -->
+        <!-- Search Bar Starts -->
+        <div class="bar">
+            <input class="searchbar" type="text" title="Search" />
+            <img src="search.png" alt="" id="search1">
+            <img src="close.png" alt="" id="clean" />
+        </div>
+        <!-- Search Bar Ends -->
+        <!-- Buttons Starts -->
+        <div class="buttons">
+            <button class="button" type="button" onclick="startSearch()">Google Search</button>
+            <button class="button" type="button" onclick="feelingLucky()">I'm Feeling Lucky</button>
+        </div>
+        <!-- Buttons Ends -->
+        <!-- Copyright Starts -->
+        <div class="copyright">
+            <p>&#169; Designed and Developed By Deepak Bhatt</p>
+        </div>
+        <!-- Copyright Ends -->
+    </center>
+
+    <!-- JavaScript Starts -->
+    <script>
+        document.getElementById('clean').addEventListener('click', () => {
+            document.getElementsByClassName('searchbar')[0].value = '';
+            document.getElementById('clean').style.display = 'none';
+        });
+
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                startSearch();
+            } else if (document.getElementsByClassName('searchbar')[0].value.length > 0) {
+                document.getElementById('clean').style.display = 'block';
+            } else {
+                document.getElementById('clean').style.display = 'none';
+            }
+        });
+
+        document.getElementById('search1').addEventListener('click', () => {
+            startSearch();
+        });
+
+        function startSearch() {
+            const searchValue = document.getElementsByClassName('searchbar')[0].value;
+            window.location.href = `https://www.google.com/search?q=${searchValue}`;
+        }
+
+        function feelingLucky() {
+            window.location.href = 'https://doodles.google/';
+        }
+    </script>
+    <!-- JavaScript Ends -->
+</body>
+
+</html>
